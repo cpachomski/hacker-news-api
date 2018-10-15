@@ -9,7 +9,7 @@ import (
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Todos API v0.0.1")
+	w.Write([]byte("Todos API v0.0.1"))
 }
 
 func TopStories(w http.ResponseWriter, r *http.Request) {
