@@ -11,3 +11,5 @@ RUN go install -v ./...
 FROM gcr.io/distroless/base
 COPY --from=build /go/bin/app /
 CMD ["/app"]
+
+EXPOSE 8080
