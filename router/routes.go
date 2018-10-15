@@ -2,6 +2,8 @@ package main
 
 import (
 	"net/http"
+
+	"github.com/cpachomski/hacker-news-api/handlers"
 )
 
 type Route struct {
@@ -18,12 +20,12 @@ var routes = Routes{
 		"Index",
 		"GET",
 		"/",
-		Index,
+		handlers.Index,
 	},
 	Route{
 		"TopStories",
 		"GET",
 		"/top-stories",
-		TopStories,
+		handlers.TopStories,
 	},
 }
