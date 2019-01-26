@@ -1,0 +1,25 @@
+# serverless.yml
+
+service: hacker-news-sls
+
+provider:
+  name: aws
+  runtime: go1.x
+
+package:
+  exclude:
+    - ./**
+  include:
+    - ./bin/**
+
+functions:
+  ResourceList:
+    handler: bin/stories
+    events:
+      - http:
+          path: stories/{storyType}
+          method: get
+          request:
+            parameters:
+              paths:
+                storyType: true
