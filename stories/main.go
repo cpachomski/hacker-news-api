@@ -12,14 +12,13 @@ import (
 )
 
 type Story struct {
-	Id           int    `json:"id"`
-	Title        string `json:"title"`
-	Url          string `json:"url"`
-	By           string `json:"by"`
-	Score        int    `json:"score"`
-	Time         int    `json:"time"`
-	Comments     []int  `json:"kids"`
-	CommentCount int    `json:"commentsCount"`
+	Id       int    `json:"id"`
+	Title    string `json:"title"`
+	Url      string `json:"url"`
+	By       string `json:"by"`
+	Score    int    `json:"score"`
+	Time     int    `json:"time"`
+	Comments []int  `json:"kids"`
 }
 
 type Stories []Story
