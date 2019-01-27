@@ -18,7 +18,7 @@ type Story struct {
 	By           string `json:"by"`
 	Score        int    `json:"score"`
 	Time         int    `json:"time"`
-	Comments     []int  `json:"comments"`
+	Comments     []int  `json:"kids"`
 	CommentCount int    `json:"commentsCount"`
 }
 
@@ -40,14 +40,15 @@ func fetch(url string, ch chan<- []byte) {
 
 func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 
+	// List Type: top | best | new | ask | show | job
 	listType := "top"
 	if _, ok := request.PathParameters["type"]; ok {
 		listType = request.PathParameters["type"]
 	}
 
+	// Fetch list of story ids
 	topStoriesIdsCh := make(chan []byte)
 	topStoriesURI := fmt.Sprintf("https://hacker-news.firebaseio.com/v0/%sstories.json", listType)
-
 	go fetch(topStoriesURI, topStoriesIdsCh)
 
 	var topStoriesIds []int
