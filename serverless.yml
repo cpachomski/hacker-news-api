@@ -4,6 +4,7 @@ service: hacker-news-sls
 
 provider:
   name: aws
+  stage: ${opt:stage, 'dev'}
   runtime: go1.x
 
 package:
